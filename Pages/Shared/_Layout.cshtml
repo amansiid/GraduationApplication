@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Graduation Application</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/GraduationApplication.styles.css" asp-append-version="true" />
+
+</head>
+<body>
+    <div class="d-flex">
+        <!-- Sidebar -->
+        <div class="sidebar" id="sidebar">
+            <header>
+                <nav class="navbar navbar-expand-sm navbar-custom border-bottom box-shadow mb-3">
+                    <div class="container">
+                        <a class="navbar-brand title-background text-wrap" style="max-width: 100%;" asp-area="" asp-page="/Index">Graduation Application</a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                                aria-expanded="false" aria-label="Toggle navigation">
+                        </button>
+                    </div>
+                </nav>
+            </header>
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link" asp-area="" asp-page="/GraduationApps/GraduationAppIndex" role="button">Graduation Applications</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-area="" asp-page="/AcademicPrograms/AcademicProgIndex" role="button">Academic Programs</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-area="" asp-page="/GraduationApps/CreateGraduationApplications" role="button">Create Graduation Application</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-area="" asp-page="/AcademicPrograms/CreateAcademicPrograms" role="button">Create Academic Program</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Main content area -->
+        <div class="content flex-grow-1">
+            <header>
+                <nav class="navbar navbar-expand navbar-custom border-top box-shadow mb-5">
+                    <button class="btn btn-primary" id="sidebarToggle">☰</button>
+                    <span class="navbar-brand text-nowrap text-center w-100" style="max-width: 100%;">Columbia Basin College</span>
+                    <button class="btn btn-secondary" id="accountButton"> <i class="bi bi-person"></i></button>
+                </nav>
+            </header>
+            <main role="main" class="pb-3">
+                @RenderBody()
+            </main>
+        </div>
+    </div>
+
+    <!--Footer-->
+    <footer class="border-top footer text-muted">
+        <div class="container-fluid d-flex justify-content-around">
+            &copy; 2024 - Graduation Application
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+
+   <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var sidebarToggle = document.getElementById("sidebarToggle");
+        var sidebar = document.querySelector(".sidebar");
+
+        sidebarToggle.addEventListener("click", function() {
+            sidebar.classList.toggle("show");
+        });
+    });
+</script>
+</body>
+</html>

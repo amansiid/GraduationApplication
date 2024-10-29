@@ -1,0 +1,167 @@
+﻿.nav-link {
+    display: block; /* Make the entire link area clickable */
+    padding: 10px 15px; /* Add padding for better touch targets */
+    margin-bottom: 10px; /* Space below each link */
+    border-radius: 0.25rem; /* Rounded corners */
+    background-color: #007bff; /* Solid blue background */
+    color: #fff; /* White text */
+}
+
+.title-background {
+    background-color: #d0e7ff; /* Light blue background */
+    padding: 10px; /* Optional: Add some padding for better appearance */
+    border-radius: 5px; /* Optional: Add rounded corners */
+}
+
+.border-top {
+    border-top: 1px solid #e5e5e5;
+}
+
+.border-bottom {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+    font-size: 1rem;
+    line-height: inherit;
+}
+
+
+
+/* Additional styles for sidebar */
+body {
+    display: flex;
+}
+
+
+.sidebar {
+    min-width: 170px;
+    background-color: #f8f9fa;
+    padding: 20px;
+    height: 100vh; /* Full height */
+}
+
+.sidebar h4 {
+    margin-bottom: 20px; /* Space below the title */
+}
+
+/* Media query to hide sidebar on small screens */
+@media (max-width: 768px) {
+    .sidebar {
+        display: none; /* Hide sidebar */
+    }
+    .sidebar.show {
+        display: block; /* Show sidebar when the class 'show' is added */
+    }
+}
+
+/* Media query to hide sidebar on small screens */
+@media (max-width: 768px) {
+    .sidebar {
+        display: none; /* Hide sidebar */
+    }
+
+    .sidebar.show {
+       display: block; /* Show sidebar when the class 'show' is added */
+    }
+
+}
+
+/* Media query to hide sidebar on tablet screens */
+@media (max-width: 1024px) {
+    .sidebar {
+        display: none; /* Hide sidebar */
+    }
+
+    .sidebar.show {
+       display: block; /* Show sidebar when the class 'show' is added */
+    }
+}
+
+/* Media query to increase content size on small screens */
+@media (max-width: 768px) {
+    .content {
+        margin: 0; /* Remove margins */
+        padding: 20px; /* Increase padding */
+        width: 100%; /* Take full width */
+        height: auto; /* Adjust height */
+        font-size: 1rem; /* Increase font size */
+    }
+}
+
+/* Media query to increase content size on tablet screens */
+@media (max-width: 1024px) {
+    .content {
+        margin: 0; /* Remove margins */
+        padding: 20px; /* Increase padding */
+        width: 100%; /* Take full width */
+        height: auto; /* Adjust height */
+        font-size: 1rem; /* Increase font size */
+    }
+}
+
+.content {
+
+    /* Add some margin to the right */
+    margin-right: 5px;
+    margin-left: 5px;
+    /* Add some padding */
+    padding: 18px;
+    /* Add a border */
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    /* Add a box shadow */
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+    /* Add some background color */
+    background-color: lightcyan;
+    margin-bottom: 0;
+    flex-shrink: 0;
+    overflow: initial;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 80px;
+}
+
+#sidebarToggle {
+    position: initial; /* Change to fixed to stay on top */
+    top: 10px;
+    left: 10px;
+    z-index: 1050; /* Ensure it's on top of other elements */
+    color: #fff;
+    border-color: black;
+    background-color: darkgoldenrod;
+}
+
+.navbar-custom {
+    background-color: #343a40; /* Dark gray background */
+    height: 70px; /* Increase height for larger navbar */
+    color: #ffffff; /* White text color */
+    padding: 10px 20px; /* Add padding for spacing */
+}
+
+    .navbar-custom .navbar-toggler {
+        color: #ffffff; /* Toggle button color */
+        border-color: #ffffff;
+    }
+
+    .navbar-custom .btn-primary {
+        background-color: #007bff; /* Button background color */
+        border: none;
+    }
+
+    .navbar-custom .btn-primary:hover {
+        background-color: #0056b3; /* Darker blue on hover */
+    }
+
+.footer {
+    position: absolute;
+    bottom: 10;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px;
+}
