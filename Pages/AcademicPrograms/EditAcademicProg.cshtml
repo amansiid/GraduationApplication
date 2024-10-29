@@ -1,0 +1,22 @@
+﻿@page
+@model GraduationApplication.Pages.AcademicPrograms.EditAcademicProgModel
+@{
+    ViewData["Title"] = "Edit Academic Program";
+}
+
+<h1>Edit Academic Program</h1>
+
+<form method="post">
+    <div class="form-group">
+        <label asp-for="AcademicProgram.ProgramTitle" class="control-label"></label>
+        <input asp-for="AcademicProgram.ProgramTitle" class="form-control" />
+        <span asp-validation-for="AcademicProgram.ProgramTitle" class="text-danger"></span>
+    </div>
+    <input type="hidden" asp-for="AcademicProgram.ProgramId" />
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a asp-page="./AcademicProgIndex" class="btn btn-secondary">Cancel</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

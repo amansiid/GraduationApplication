@@ -1,0 +1,32 @@
+﻿@page
+@model GraduationApplication.Pages.GraduationApps.EditGradAppModel
+@{
+    ViewData["Title"] = "Edit Graduation Application";
+}
+
+<h1>Edit Graduation Application</h1>
+
+<form method="post">
+    <div class="form-group">
+        <label asp-for="GraduationApplication.StudentName" class="control-label">Student Name</label>
+        <input asp-for="GraduationApplication.StudentName" class="form-control" />
+        <span asp-validation-for="GraduationApplication.StudentName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="GraduationApplication.AppliedQuarter" class="control-label">Applied Quarter</label>
+        <input asp-for="GraduationApplication.AppliedQuarter" class="form-control" />
+        <span asp-validation-for="GraduationApplication.AppliedQuarter" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="GraduationApplication.AcademicProgram.ProgramTitle" class="control-label">Program Title</label>
+        <input asp-for="GraduationApplication.AcademicProgram.ProgramTitle" class="form-control" />
+        <span asp-validation-for="GraduationApplication.AcademicProgram.ProgramTitle" class="text-danger"></span>
+    </div>
+    <input type="hidden" asp-for="GraduationApplication.ApplicationId" />
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a asp-page="./GraduationAppIndex" class="btn btn-secondary">Cancel</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

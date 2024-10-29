@@ -33,7 +33,7 @@
         }
     </tbody>
 </table>
-
+<!--pagination-->
 <nav aria-label="Graduation Applications Pagination">
     <ul class="pagination justify-content-left">
         <!-- Previous Button -->
@@ -82,6 +82,43 @@
     </div>
 </div>
 
+@* <!-- Edit Modal -->
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editModalLabel">Edit Graduation Application</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="editForm" method="post" asp-page="./EditGradApp">
+                    <div class="form-group">
+                        <label asp-for="GraduationApplication.StudentName" class="control-label">Student Name</label>
+                        <input asp-for="GraduationApplication.StudentName" class="form-control" id="editStudentName" />
+                        <span asp-validation-for="GraduationApplication.StudentName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="GraduationApplication.AppliedQuarter" class="control-label">Applied Quarter</label>
+                        <input asp-for="GraduationApplication.AppliedQuarter" class="form-control" id="editAppliedQuarter" />
+                        <span asp-validation-for="GraduationApplication.AppliedQuarter" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="GraduationApplication.AcademicProgram.ProgramTitle" class="control-label">Program Title</label>
+                        <input asp-for="GraduationApplication.AcademicProgram.ProgramTitle" class="form-control" id="editProgramTitle" />
+                        <span asp-validation-for="GraduationApplication.AcademicProgram.ProgramTitle" class="text-danger"></span>
+                    </div>
+                    <input type="hidden" asp-for="GraduationApplication.ApplicationId" id="editApplicationId" />
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary" form="editForm">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div> *@
 
 @section Scripts {
     <script>
@@ -90,5 +127,17 @@
             $('#deleteApplicationId').val(applicationId);
             $('#deleteModal').modal('show');
         });
+
+          $(document).on('click', '.edit-btn', function () {
+                    var applicationId = $(this).data('id');
+                    var studentName = $(this).data('studentname');
+                    var appliedQuarter = $(this).data('quarter');
+                    var programTitle = $(this).data('program');
+                    $('#editApplicationId').val(applicationId);
+                    $('#editStudentName').val(studentName);
+                    $('#editAppliedQuarter').val(appliedQuarter);
+                    $('#editProgramTitle').val(programTitle);
+                    $('#editModal').modal('show');
+                });      
     </script>
 }

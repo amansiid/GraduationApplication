@@ -4,11 +4,7 @@
     ViewData["Title"] = "Academic Programs";
 }
 
-<h1>Academic Programs</h1>
-
-<p>
-    <a asp-page="CreateAcademicPrograms" class="btn btn-primary">Create New Academic Program</a>
-</p>
+<h2>Academic Programs</h2>
 
 <table class="table">
     <thead>
@@ -35,6 +31,7 @@
     </tbody>
 </table>
 
+<!--Pagination-->
 <nav aria-label="Academic Programs Pagination">
     <ul class="pagination justify-content-left">
         <!-- Previous Button -->
@@ -82,12 +79,48 @@
     </div>
 </div>
 
+<!-- Edit Modal -->
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editModalLabel">Edit Academic Program</h5>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="editForm" method="post" asp-page="./EditAcademicProg">
+                    <input type="hidden" name="AcademicProgram.ProgramId" id="editProgramId" />
+                    <div class="form-group">
+                        <label for="editProgramTitle">Program Title</label>
+                        <input type="text" class="form-control" name="AcademicProgram.ProgramTitle" id="editProgramTitle" />
+                    </div>
+                    <div class="mt-3">
+                        <!-- Add margin-top class here -->
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
 @section Scripts {
     <script>
         $(document).on('click', '.delete-btn', function () {
             var programId = $(this).data('id');
             $('#deleteProgramId').val(programId);
             $('#deleteModal').modal('show');
+        });
+
+        $(document).on('click', '.edit-btn', function () {
+            var programId = $(this).data('id');
+            var programTitle = $(this).data('title');
+            $('#editProgramId').val(programId);
+            $('#editProgramTitle').val(programTitle);
+            $('#editModal').modal('show');
         });
     </script>
 }
